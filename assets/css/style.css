@@ -1,0 +1,525 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+::selection {
+    background: #009900;
+    ;
+    color: #000000;
+}
+
+/* body */
+body {
+    height: 100vh;
+}
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+
+}
+
+/* particulas */
+#particles-js {
+    position: relative;
+    z-index: -1;
+}
+
+/* navbar */
+
+nav {
+    align-items: center;
+    display: flex;
+}
+
+nav img {
+    width: 8%;
+    margin: 1% 4% 0 4%;
+    border-radius: 50%;
+    animation: backgroundAnimation 10s infinite, float 3s ease-in-out infinite;
+    object-fit: cover;
+    box-sizing: border-box;
+}
+
+@keyframes backgroundAnimation {
+
+    0%,
+    100% {
+        background-color: #003300;
+    }
+
+    20% {
+        background-color: #004d00;
+    }
+
+    40% {
+        background-color: #006600;
+    }
+
+    60% {
+        background-color: #008000;
+    }
+
+    80% {
+        background-color: #009900;
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-20px);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* main */
+main {
+    display: flex;
+}
+
+/* input */
+.input {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 1% 2% 1% 2%;
+    padding: 1% 2% 1% 2%;
+    border-radius: 16px;
+    border: 1px solid #8dff76;
+    box-shadow: 4px 4px 20px 0px rgba(1, 8, 14, 0.15);
+    background-image: url("../img/Ruido.png");
+    background-size: 100% 100%;
+}
+
+.input__textarea {
+    height: 100%;
+    border-radius: 8px;
+    outline: none;
+    font-size: 1rem;
+}
+
+.input__textarea__descricao {
+    color: white;
+}
+
+/* botão */
+.input__button {
+    display: flex;
+    justify-content: space-between;
+}
+
+.input__button button {
+    width: 50%;
+    height: 2rem;
+}
+
+.input__button a {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #03f484;
+    font-size: 1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: 0.5s;
+    letter-spacing: 4px;
+}
+
+.input__button a:hover {
+    background: #03f484;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #03f484, 0 0 25px #03f484, 0 0 50px #03f484, 0 0 100px #03f484;
+}
+
+.input__button a span {
+    position: absolute;
+    display: block;
+}
+
+.input__button a span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #03f484);
+    animation: btn-anim1 1s linear infinite;
+}
+
+.input__button a span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #03f484);
+    animation: btn-anim2 1s linear infinite;
+    animation-delay: 0.25s;
+}
+
+.input__button a span:nth-child(3) {
+    bottom: 0;
+    right: 100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #03f484);
+    animation: btn-anim3 1s linear infinite;
+    animation-delay: 0.5s;
+}
+
+.input__button a span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #03f484);
+    animation: btn-anim4 1s linear infinite;
+    animation-delay: 0.75s;
+}
+
+.input__button a.hover span:nth-child(1) {
+    left: 100%;
+}
+
+.input__button a.hover span:nth-child(2) {
+    top: 100%;
+}
+
+.input__button a.hover span:nth-child(3) {
+    right: -100%;
+}
+
+.input__button a.hover span:nth-child(4) {
+    bottom: 100%;
+}
+
+@keyframes btn-anim1 {
+    0% {
+        left: -100%;
+    }
+
+    50%,
+    100% {
+        left: 100%;
+    }
+}
+
+@keyframes btn-anim2 {
+    0% {
+        top: -100%;
+    }
+
+    50%,
+    100% {
+        top: 100%;
+    }
+}
+
+@keyframes btn-anim3 {
+    0% {
+        right: -100%;
+    }
+
+    50%,
+    100% {
+        right: 100%;
+    }
+}
+
+@keyframes btn-anim4 {
+    0% {
+        bottom: -100%;
+    }
+
+    50%,
+    100% {
+        bottom: 100%;
+    }
+}
+
+/* fim input*/
+
+/* output */
+.output {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    margin: 1% 2% 1% 2%;
+    padding: 1% 2% 1% 2%;
+    border-radius: 16px;
+    border: 1px solid #8dff76;
+    box-shadow: 4px 4px 20px 0px rgba(1, 8, 14, 0.15);
+    background-image: url("../img/Ruido.png");
+    background-size: 100% 100%;
+}
+
+.output img {
+    width: 20rem;
+    border-radius: 8px;
+}
+
+.output__textos {
+    font-size: 0.8rem;
+}
+
+.output__titulo,
+.output__descricao {
+    color: white;
+}
+
+/* botão */
+.output__button button {
+    width: 20rem;
+    height: 2rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: rgb(255, 251, 251);
+    letter-spacing: 4px;
+    font-size: 1rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.output__button button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #03f484;
+    z-index: -1;
+    transition: transform 0.5s;
+    transform-origin: bottom right;
+    transform: scale(0);
+}
+
+.output__button button:hover:before {
+    transition: transform 0.5s;
+    transform-origin: top left;
+    transform: scale(1);
+}
+
+.output__button button:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: 2px solid #fff;
+    box-sizing: border-box;
+    z-index: -1;
+    transition: transform 0.5s;
+    transform-origin: top left;
+    transform: scale(1);
+}
+
+.output__button button:hover:after {
+    transition: transform 0.5s;
+    transform-origin: bottom right;
+    transform: scale(0);
+}
+
+/* fim output */
+
+/* modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 30px 20px; 
+    border: 1px solid #888;
+    color: white;
+    width: 18%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 16px;
+    border: 1px solid #8dff76;
+    box-shadow: 4px 4px 20px 0px rgba(1, 8, 14, 0.95);
+    background-image: url("../img/Ruido.png");
+    background-size: 100% 100%;
+    animation: backgroundAnimation 10s infinite;
+}
+
+.close {
+    color: #ffffff;
+    float: right;
+    font-size: 2.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 2.5rem;
+    vertical-align: middle;
+    margin-top: -10px;
+    animation: pulse .8s infinite;
+}
+
+.close:hover,
+.close:focus {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* fim modal */
+
+/* responsividade */
+@media (max-width: 965px) {
+    .input__button button {
+        width: 45%;
+        height: 2rem;
+    }
+    
+    .input__button a {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+    }
+}
+
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+    }
+
+    .input,
+    .output {
+        width: 100%;
+        margin: 1% 2%;
+    }
+
+    .input__button,
+    .output__button {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .input__textarea {
+        height: 10rem;
+        border-radius: 8px;
+    }
+
+    .input__button button {
+        width: 48%;
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 445px) {
+    nav img {
+        width: 12%;
+        margin: 1% 4% 0 8%;
+    }
+
+    .input__button button {
+        width: 30%;
+        height: 2rem;
+    }
+    
+    .input__button a {
+        padding: 5px 10px;
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+    }
+
+    .input__textarea {
+        height: 20rem;
+    }
+
+    .output {
+        margin-top: 15px;
+    }
+
+    .output img {
+        width: 20rem;
+    }
+    .modal-content {
+        width: 50%;
+        margin-top: 40%;
+    }
+}
+
+@media (max-width: 340px) {
+    nav img {
+        width: 12%;
+        margin: 1% 4% 0 10%;
+    }
+
+    .input__button button {
+        width: 15%;
+        height: 2rem;
+    }
+    
+    .input__button a {
+        padding: 3px 6px;
+        font-size: 0.7rem;
+        letter-spacing: 1.5px;
+    }
+
+    .input__textarea {
+        height: 20rem;
+    }
+
+    .output {
+        margin-top: 15px;
+    }
+
+    .output img {
+        width: 15rem;
+    }
+
+    .output__button button {
+        width: 15rem;
+        height: 2rem;
+        justify-content: center;
+        align-items: center;
+        padding: 2px 4px;
+        letter-spacing: 4px;
+        font-size: 0.5rem;
+    }
+}
+
+/* fim responsividade */
