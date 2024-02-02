@@ -6,13 +6,13 @@
 
 ::selection {
     background: #009900;
-    ;
     color: #000000;
 }
 
 /* body */
 body {
     height: 100vh;
+    margin: 0 auto;
 }
 
 canvas {
@@ -23,8 +23,14 @@ canvas {
     z-index: -2;
     width: 100%;
     height: 100%;
-
 }
+
+.input,
+.output {
+    margin: 1% 2%; 
+    width: calc(50% - 4%);
+}
+
 
 /* particulas */
 #particles-js {
@@ -33,7 +39,6 @@ canvas {
 }
 
 /* navbar */
-
 nav {
     align-items: center;
     display: flex;
@@ -41,7 +46,7 @@ nav {
 
 nav img {
     width: 8%;
-    margin: 1% 4% 0 4%;
+    margin: 1% 4% 0 8%;
     border-radius: 50%;
     animation: backgroundAnimation 10s infinite, float 3s ease-in-out infinite;
     object-fit: cover;
@@ -99,15 +104,19 @@ nav img {
 /* main */
 main {
     display: flex;
+    justify-content: space-between;
+    padding: 0 4%;
 }
+
+
 
 /* input */
 .input {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: calc(50% - 4%);
     margin: 1% 2% 1% 2%;
-    padding: 1% 2% 1% 2%;
+    padding: 1% 2%;
     border-radius: 16px;
     border: 1px solid #8dff76;
     box-shadow: 4px 4px 20px 0px rgba(1, 8, 14, 0.15);
@@ -260,14 +269,13 @@ main {
         bottom: 100%;
     }
 }
-
 /* fim input*/
 
 /* output */
 .output {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: calc(50% - 4%);
     justify-content: center;
     align-items: center;
     margin: 1% 2% 1% 2%;
@@ -353,7 +361,6 @@ main {
     transform-origin: bottom right;
     transform: scale(0);
 }
-
 /* fim output */
 
 /* modal */
@@ -426,7 +433,7 @@ main {
 
     .input,
     .output {
-        width: 100%;
+        width: 96%;
         margin: 1% 2%;
     }
 
@@ -446,12 +453,15 @@ main {
         width: 48%;
         margin-top: 1rem;
     }
+    .output img {
+        width: 10rem;
+    }
 }
 
 @media (max-width: 445px) {
     nav img {
         width: 12%;
-        margin: 1% 4% 0 8%;
+        margin: 1% 4% 0 12%;
     }
 
     .input__button button {
@@ -470,19 +480,20 @@ main {
     }
 
     .output {
-        margin-top: 15px;
+        margin-top: 25px;
     }
 
     .output img {
         width: 20rem;
     }
+
     .modal-content {
         width: 50%;
         margin-top: 40%;
     }
 }
 
-@media (max-width: 340px) {
+@media (max-width: 365px) {
     nav img {
         width: 12%;
         margin: 1% 4% 0 10%;
@@ -500,7 +511,7 @@ main {
     }
 
     .input__textarea {
-        height: 20rem;
+        height: 15rem;
     }
 
     .output {
@@ -521,5 +532,4 @@ main {
         font-size: 0.5rem;
     }
 }
-
 /* fim responsividade */
