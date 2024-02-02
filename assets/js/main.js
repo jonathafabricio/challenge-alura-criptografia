@@ -12,9 +12,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     encryptButton.addEventListener('click', () => {
         if (textareaIsEmpty()) {
-            showModal();
+            showModal('Por favor, digite algo.');
+        } else if (!isValidInput(textarea.value)) {
+            showModal('Por favor, insira apenas letras minúsculas, e/ou remova os caracteres especiais.');
         } else {
-            const inputText = textarea.value.trim().toLowerCase();
+            const inputText = textarea.value.trim();
             const encryptedText = encrypt(inputText);
             displayResult(encryptedText);
         }
@@ -22,9 +24,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     decryptButton.addEventListener('click', () => {
         if (textareaIsEmpty()) {
-            showModal();
+            showModal('Por favor, digite algo.');
+        } else if (!isValidInput(textarea.value)) {
+            showModal('Por favor, insira apenas letras minúsculas, e/ou remova os caracteres especiais.');
         } else {
-            const inputText = textarea.value.trim().toLowerCase();
+            const inputText = textarea.value.trim();
             const decryptedText = decrypt(inputText);
             displayResult(decryptedText);
         }
@@ -50,8 +54,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    function showModal() {
+    function showModal(message) {
         modal.style.display = 'block';
+        document.getElementById('modalMessage').textContent = message;
     }
 
     function encrypt(text) {
@@ -92,8 +97,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function updateButtonState() {
         const text = textarea.value.trim();
-        encryptButton.classList.toggle('disabled', text.length === 0);
-        decryptButton.classList.toggle('disabled', text.length === 0);
+        const isValid = isValidInput(text);
+        encryptButton.classList.toggle('disabled', text.length === 0 || !isValid);
+        decryptButton.classList.toggle('disabled', text.length === 0 || !isValid);
+    }
+
+    function isValidInput(text) {
+        const regex = /^[a-z\s]*$/;
+        return regex.test(text);
     }
 
     updateButtonState();

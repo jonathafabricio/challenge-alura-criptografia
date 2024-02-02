@@ -108,8 +108,6 @@ main {
     padding: 0 4%;
 }
 
-
-
 /* input */
 .input {
     display: flex;
@@ -412,6 +410,14 @@ main {
 
 /* fim modal */
 
+/* footer */
+footer {
+    color: white;
+    text-align: center;
+    margin-top: 2rem;
+}
+/* fim footer */
+
 /* responsividade */
 @media (max-width: 965px) {
     .input__button button {
@@ -490,6 +496,10 @@ main {
     .modal-content {
         width: 50%;
         margin-top: 50%;
+    }
+
+    footer {
+        margin-top: 0;
     }
 }
 
