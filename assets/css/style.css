@@ -476,7 +476,7 @@ main {
     }
 
     .input__textarea {
-        height: 25rem;
+        height: 19rem;
     }
 
     .output {
@@ -484,7 +484,7 @@ main {
     }
 
     .output img {
-        width: 25rem;
+        width: 19rem;
     }
 
     .modal-content {
