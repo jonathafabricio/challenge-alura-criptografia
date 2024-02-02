@@ -458,6 +458,41 @@ main {
     }
 }
 
+@media (max-width: 500px) {
+    nav img {
+        width: 16%;
+        margin: 1% 4% 0 12%;
+    }
+
+    .input__button button {
+        width: 30%;
+        height: 2rem;
+    }
+    
+    .input__button a {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        letter-spacing: 3px;
+    }
+
+    .input__textarea {
+        height: 25rem;
+    }
+
+    .output {
+        margin-top: 25px;
+    }
+
+    .output img {
+        width: 25rem;
+    }
+
+    .modal-content {
+        width: 50%;
+        margin-top: 50%;
+    }
+}
+
 @media (max-width: 445px) {
     nav img {
         width: 12%;
