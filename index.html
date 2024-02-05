@@ -12,8 +12,20 @@
 <body>
     <canvas id="c"></canvas>
     <div id="particles-js"></div>
+
     <nav>
-        <img src="assets/img/profile-5.png" alt="logo">
+        <img src="assets/img/profile-5.png" alt="Ícone de perfil" class="icon-left">
+        <div class="icon-palette-container">
+            <div class="custom-dropdown" onclick="toggleDropdown()">
+                <ul class="dropdown-options" id="theme-options">
+                    <li data-value="theme-1"><span class="color-circle" style="background-color: #009900;"></span></li>
+                    <li data-value="theme-2"><span class="color-circle" style="background-color: #ff0000;"></span></li>
+                    <li data-value="theme-3"><span class="color-circle" style="background-color: #FF66A3;"></span></li>
+                    <li data-value="theme-4"><span class="color-circle" style="background-color: #1e90ff;"></span></li>
+                </ul>
+            </div>
+            <div class="icon-right"></div>
+        </div>
     </nav>
 
     <main>
@@ -39,7 +51,7 @@
             </div>
         </div>
         <div class="output">
-            <img src="assets/img/jfmatrix.jpeg" alt="logo">
+            <div class="matrix-image"></div>
             <div class="output__textos">
                 <h2 class="output__titulo">Nenhuma mensagem encontrada</h2>
                 <p class="output__descricao">Digite um texto que você deseja criptografar ou descriptografar.</p>
@@ -56,7 +68,7 @@
                 <p id="modalMessage">Por favor, digite algo.</p>
             </div>
         </div>
-        
+
     </main>
 
     <footer>
@@ -64,15 +76,13 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        particlesJS.load('particles-js', 'assets/config/package.json', function () {
-            console.log('callback - particles.js config loaded');
-        });
-    </script>
+
     <script src="assets/js/main.js"></script>
     <script src="assets/js/matrix-effect.js"></script>
     <script src="assets/js/button-animation.js"></script>
     <script src="assets/js/typeWritter.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/config/updateParticlesConfig.js"></script>
 </body>
 
 </html>

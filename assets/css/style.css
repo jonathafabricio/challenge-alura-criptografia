@@ -1,3 +1,91 @@
+:root.theme-1 {
+    --background-color: #009900;
+    --text-color: #ffffff;
+    --selection-color: #000000;
+    --accent-color: #39FF14;
+    --border-color: #8dff76;
+    --modal-bg-color: #fefefe;
+    --modal-text-color: #ffffff;
+    --modal-border-color: #888;
+    --animation-color-1: #004400;
+    --animation-color-2: #005700;
+    --animation-color-3: #007a00;
+    --animation-color-4: #008c00;
+    --animation-color-5: #009e00;    
+    --background-image: url('../img/Ruido.png');
+    --background-image-matrix: url('../img/jfmatrix.webp');
+    --background-paleta: url('../img/paleta-verde.png');
+    --matrix-text-color: #0F0;
+    --particles-color: #ffffff;
+    --particles-line-color: #009900;
+}
+
+:root.theme-2 {
+    --background-color: #ff0000;
+    --text-color: #ffffff;
+    --selection-color: #000000;
+    --accent-color: #FF073A;
+    --border-color: #ff4500;
+    --modal-bg-color: #1100ff;
+    --modal-text-color: #ffffff;
+    --modal-border-color: #ff4500;
+    --animation-color-1: #661111;
+    --animation-color-2: #801515;
+    --animation-color-3: #991919;
+    --animation-color-4: #B22222;
+    --animation-color-5: #CC2626;    
+    --background-image: url('../img/Ruido2.png');
+    --background-image-matrix: url('../img/jfmatrix2.webp');
+    --background-paleta: url('../img/paleta-vermelha.png');
+    --matrix-text-color: #F00;
+    --particles-color: #ff0000;
+    --particles-line-color: #ff6347;
+}
+
+:root.theme-3 {
+    --background-color: #ffc0cb;
+    --text-color: #ffffff;
+    --selection-color: #000000;
+    --accent-color: #ff69b4;
+    --border-color: #db7093;
+    --modal-bg-color: #fff0f5;
+    --modal-text-color: #ffffff;
+    --modal-border-color: #db7093;
+    --animation-color-1: #FF66A3;
+    --animation-color-2: #FF75B3;
+    --animation-color-3: #FF85C2;
+    --animation-color-4: #FF94D1;
+    --animation-color-5: #FFA3E0;
+    --background-image: url('../img/Ruido3.png');
+    --background-image-matrix: url('../img/jfmatrix3.webp');
+    --background-paleta: url('../img/paleta-rosa.png');
+    --matrix-text-color: #FFC0CB;
+    --particles-color: #ffc0cb;
+    --particles-line-color: #ff69b4;
+}
+
+:root.theme-4 {
+    --background-color: #0000ff;
+    --text-color: #ffffff;
+    --selection-color: #000000;
+    --accent-color: #1e90ff;
+    --border-color: #00bfff;
+    --modal-bg-color: #add8e6;
+    --modal-text-color: #ffffff;
+    --modal-border-color: #1e90ff;
+    --animation-color-1: #1e90ff;
+    --animation-color-2: #4d4dff;
+    --animation-color-3: #00bfff;
+    --animation-color-4: #0000ff;
+    --animation-color-5: #3333FF;    
+    --background-image: url('../img/Ruido4.png');
+    --background-image-matrix: url('../img/jfmatrix4.webp');
+    --background-paleta: url('../img/paleta-azul.png');
+    --matrix-text-color: #00F;
+    --particles-color: #0000ff;
+    --particles-line-color: #1e90ff; 
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,8 +93,8 @@
 }
 
 ::selection {
-    background: #009900;
-    color: #000000;
+    background: var(--background-color);
+    color: var(--selection-color);
 }
 
 /* body */
@@ -31,7 +119,6 @@ canvas {
     width: calc(50% - 4%);
 }
 
-
 /* particulas */
 #particles-js {
     position: relative;
@@ -40,8 +127,16 @@ canvas {
 
 /* navbar */
 nav {
-    align-items: center;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav img {
+    width: 8%;
+    border-radius: 50%;
+    object-fit: cover;
+    box-sizing: border-box;
 }
 
 nav img {
@@ -54,26 +149,20 @@ nav img {
 }
 
 @keyframes backgroundAnimation {
-
-    0%,
-    100% {
-        background-color: #003300;
+    0%, 100% {
+        background-color: var(--animation-color-1);
     }
-
     20% {
-        background-color: #004d00;
+        background-color: var(--animation-color-2);
     }
-
     40% {
-        background-color: #006600;
+        background-color: var(--animation-color-3);
     }
-
     60% {
-        background-color: #008000;
+        background-color: var(--animation-color-4);
     }
-
     80% {
-        background-color: #009900;
+        background-color: var(--animation-color-5);
     }
 }
 
@@ -101,6 +190,86 @@ nav img {
     }
 }
 
+/* drop */
+.icon-palette-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.icon-right {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: var(--background-paleta);
+    animation: pulse 2s infinite;
+    margin: 3%;
+    margin-right: 5.4rem;
+    margin-top: 1.75rem;
+}
+
+.dropdown-options {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-right: .75rem;
+    display: none;
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    transform: translateY(-50%);
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    flex-direction: row;
+    align-items: center;
+}
+
+.dropdown-options li {
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+.dropdown-options li:hover {
+    background-color: #f0f0f0;
+}
+
+.color-circle {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  .spin-animation {
+    animation: spin 0.5s ease-in-out forwards;
+  }
+
+  @keyframes dropIn {
+    from {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+/* fim drop */
+
 /* main */
 main {
     display: flex;
@@ -116,9 +285,9 @@ main {
     margin: 1% 2% 1% 2%;
     padding: 1% 2%;
     border-radius: 16px;
-    border: 1px solid #8dff76;
+    border: 1px solid var(--border-color);
     box-shadow: 4px 4px 20px 0px rgba(1, 8, 14, 0.15);
-    background-image: url("../img/Ruido.png");
+    background-image: var(--background-image);
     background-size: 100% 100%;
 }
 
@@ -130,7 +299,7 @@ main {
 }
 
 .input__textarea__descricao {
-    color: white;
+    color: var(--text-color);
 }
 
 /* botão */
@@ -148,7 +317,7 @@ main {
     position: relative;
     display: inline-block;
     padding: 10px 20px;
-    color: #03f484;
+    color: var(--accent-color);
     font-size: 1rem;
     text-decoration: none;
     text-transform: uppercase;
@@ -158,10 +327,10 @@ main {
 }
 
 .input__button a:hover {
-    background: #03f484;
-    color: #fff;
+    background: var(--accent-color);
+    color: var(--text-color);
     border-radius: 5px;
-    box-shadow: 0 0 5px #03f484, 0 0 25px #03f484, 0 0 50px #03f484, 0 0 100px #03f484;
+    box-shadow: 0 0 5px var(--accent-color), 0 0 25px var(--accent-color), 0 0 50px var(--accent-color), 0 0 100px var(--accent-color);
 }
 
 .input__button a span {
@@ -174,7 +343,7 @@ main {
     left: -100%;
     width: 100%;
     height: 2px;
-    background: linear-gradient(90deg, transparent, #03f484);
+    background: linear-gradient(90deg, transparent, var(--accent-color));
     animation: btn-anim1 1s linear infinite;
 }
 
@@ -183,7 +352,7 @@ main {
     right: 0;
     width: 2px;
     height: 100%;
-    background: linear-gradient(180deg, transparent, #03f484);
+    background: linear-gradient(180deg, transparent, var(--accent-color));
     animation: btn-anim2 1s linear infinite;
     animation-delay: 0.25s;
 }
@@ -193,7 +362,7 @@ main {
     right: 100%;
     width: 100%;
     height: 2px;
-    background: linear-gradient(270deg, transparent, #03f484);
+    background: linear-gradient(270deg, transparent, var(--accent-color));
     animation: btn-anim3 1s linear infinite;
     animation-delay: 0.5s;
 }
@@ -203,7 +372,7 @@ main {
     left: 0;
     width: 2px;
     height: 100%;
-    background: linear-gradient(360deg, transparent, #03f484);
+    background: linear-gradient(360deg, transparent, var(--accent-color));
     animation: btn-anim4 1s linear infinite;
     animation-delay: 0.75s;
 }
@@ -279,15 +448,20 @@ main {
     margin: 1% 2% 1% 2%;
     padding: 1% 2% 1% 2%;
     border-radius: 16px;
-    border: 1px solid #8dff76;
+    border: 1px solid var(--border-color);
     box-shadow: 4px 4px 20px 0px rgba(1, 8, 14, 0.15);
-    background-image: url("../img/Ruido.png");
+    background-image: var(--background-image);
     background-size: 100% 100%;
 }
 
-.output img {
+.matrix-image {
     width: 20rem;
+    height: 20rem;
     border-radius: 8px;
+    background-image: var(--background-image-matrix);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .output__textos {
@@ -296,7 +470,7 @@ main {
 
 .output__titulo,
 .output__descricao {
-    color: white;
+    color: var(--text-color);
 }
 
 /* botão */
@@ -310,7 +484,7 @@ main {
     padding: 10px 20px;
     text-transform: uppercase;
     text-decoration: none;
-    color: rgb(255, 251, 251);
+    color: var(--text-color);
     letter-spacing: 4px;
     font-size: 1rem;
     background-color: transparent;
@@ -325,7 +499,7 @@ main {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #03f484;
+    background: var(--accent-color);
     z-index: -1;
     transition: transform 0.5s;
     transform-origin: bottom right;
@@ -346,7 +520,7 @@ main {
     width: 100%;
     height: 100%;
     background: transparent;
-    border: 2px solid #fff;
+    border: 2px solid var(--text-color);
     box-sizing: border-box;
     z-index: -1;
     transition: transform 0.5s;
@@ -375,23 +549,23 @@ main {
 }
 
 .modal-content {
-    background-color: #fefefe;
+    background-color: var(--modal-bg-color);
     margin: 15% auto;
     padding: 30px 20px; 
-    border: 1px solid #888;
-    color: white;
+    border: 1px solid var(--modal-border-color);
+    color: var(--modal-text-color);
     width: 18%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     border-radius: 16px;
-    border: 1px solid #8dff76;
+    border: 1px solid var(--border-color);
     box-shadow: 4px 4px 20px 0px rgba(1, 8, 14, 0.95);
-    background-image: url("../img/Ruido.png");
+    background-image: var(--background-image);
     background-size: 100% 100%;
     animation: backgroundAnimation 10s infinite;
 }
 
 .close {
-    color: #ffffff;
+    color: var(--modal-text-color);
     float: right;
     font-size: 2.5rem;
     font-weight: bold;
@@ -404,7 +578,7 @@ main {
 
 .close:hover,
 .close:focus {
-    color: #ffffff;
+    color: var(--modal-text-color);
     text-decoration: none;
 }
 
@@ -412,7 +586,7 @@ main {
 
 /* footer */
 footer {
-    color: white;
+    color: var(--text-color);
     text-align: center;
     margin-top: 2rem;
 }
@@ -430,6 +604,20 @@ footer {
         font-size: 0.9rem;
         letter-spacing: 2px;
     }
+
+    .icon-right {
+        width: 3.75rem;
+        height: 3.75rem;
+        margin: 5%;
+        margin-right: 3rem;
+        margin-top: 1.75rem;
+    }
+    
+    .dropdown-options {
+        margin-right: .75rem;
+        top: 60%;
+    }
+
 }
 
 @media (max-width: 768px) {
@@ -462,6 +650,7 @@ footer {
     .output img {
         width: 10rem;
     }
+
 }
 
 @media (max-width: 500px) {
@@ -498,6 +687,19 @@ footer {
         margin-top: 50%;
     }
 
+    .icon-right {
+        width: 4.5rem;
+        height: 4.5rem;
+        margin: 5%;
+        margin-right: 2.25rem;
+        margin-top: 1.75rem;
+    }
+    
+    .dropdown-options {
+        margin-right: .75rem;
+        top: 60%;
+    }
+
     footer {
         margin-top: 0;
     }
@@ -532,9 +734,37 @@ footer {
         width: 20rem;
     }
 
+    .icon-right {
+        width: 3.5rem;
+        height: 3.5rem;
+        margin: 5%;
+        margin-right: 2rem;
+        margin-top: 1.75rem;
+    }
+    
+    .dropdown-options {
+        margin-right: .75rem;
+        top: 60%;
+    }
+
     .modal-content {
         width: 50%;
         margin-top: 40%;
+    }
+}
+
+@media (max-width: 400px) {
+    .icon-right {
+        width: 3rem;
+        height: 3rem;
+        margin: 5%;
+        margin-right: 1.75rem;
+        margin-top: 1rem;
+    }
+    
+    .dropdown-options {
+        margin-right: .75rem;
+        top: 60%;
     }
 }
 
@@ -575,6 +805,19 @@ footer {
         padding: 2px 4px;
         letter-spacing: 4px;
         font-size: 0.5rem;
+    }
+
+    .icon-right {
+        width: 3rem;
+        height: 3rem;
+        margin: 5%;
+        margin-right: 1.75rem;
+        margin-top: 1rem;
+    }
+    
+    .dropdown-options {
+        margin-right: .25rem;
+        top: 60%;
     }
 }
 /* fim responsividade */
